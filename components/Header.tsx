@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 const NAV_LINKS = [
   { label: "メニュー", href: "#menu" },
   { label: "アクセス", href: "#access" },
-  { label: "ご予約", href: "#contact" },
 ];
 
 export default function Header() {
