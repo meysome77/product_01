@@ -1,39 +1,15 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useActionState } from "react";
+import { sendContactEmail, type ContactState } from "@/app/actions/contact";
 
-type FormState = "idle" | "submitting" | "success" | "error";
+const initialState: ContactState = { status: "idle" };
+
+const inputClass =
+  "w-full border border-[#E8E0D5] bg-white px-4 py-3 text-sm text-[#1A1A1A] placeholder-[#BDBDBD] focus:outline-none focus:border-[#C8A96E] transition-colors";
 
 export default function Contact() {
-  const [status, setStatus] = useState<FormState>("idle");
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("submitting");
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "YOUR_FORM_ID";
-      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  const inputClass =
-    "w-full border border-[#E8E0D5] bg-white px-4 py-3 text-sm text-[#1A1A1A] placeholder-[#BDBDBD] focus:outline-none focus:border-[#C8A96E] transition-colors";
+  const [state, action, isPending] = useActionState(sendContactEmail, initialState);
 
   return (
     <section id="contact" className="py-24 px-6 bg-white">
@@ -48,13 +24,13 @@ export default function Contact() {
           </p>
         </div>
 
-        {status === "success" ? (
+        {state.status === "success" ? (
           <div className="text-center py-16 border border-[#C8A96E]">
             <p className="text-[#C8A96E] text-lg tracking-wider mb-2">ありがとうございます</p>
             <p className="text-[#6B6B6B] text-sm">お送りいただいた内容を確認の上、ご連絡いたします。</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate aria-label="予約・お問い合わせフォーム">
+          <form action={action} aria-label="予約・お問い合わせフォーム">
             <div className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-xs tracking-widest text-[#6B6B6B] uppercase mb-2">
@@ -104,18 +80,18 @@ export default function Contact() {
               </div>
             </div>
 
-            {status === "error" && (
+            {state.status === "error" && (
               <p role="alert" className="text-red-500 text-sm mt-4">
-                送信に失敗しました。しばらく経ってから再度お試しください。
+                {state.message}
               </p>
             )}
 
             <button
               type="submit"
-              disabled={status === "submitting"}
+              disabled={isPending}
               className="mt-8 w-full bg-[#C8A96E] text-white py-4 text-sm tracking-widest hover:bg-[#B8955A] transition-colors duration-300 disabled:opacity-50"
             >
-              {status === "submitting" ? "送信中..." : "送信する"}
+              {isPending ? "送信中..." : "送信する"}
             </button>
           </form>
         )}
