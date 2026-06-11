@@ -5,26 +5,20 @@ export default function Footer() {
         <p className="text-white text-xl font-light tracking-widest mb-2">Café Lumière</p>
         <p className="text-xs tracking-widest mb-8">〒150-0001 東京都渋谷区神宮前1-2-3</p>
 
-        <nav aria-label="SNSリンク" className="flex justify-center gap-8 mb-8">
+        <div className="mb-8">
+          <p className="text-white/50 text-xs tracking-widest mb-4">
+            最新情報は Instagram でチェック
+          </p>
           <a
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs tracking-widest hover:text-[#C8A96E] transition-colors"
             aria-label="Instagram（外部リンク）"
+            className="inline-block border border-[#C8A96E] text-[#C8A96E] px-8 py-2 text-xs tracking-widest hover:bg-[#C8A96E] hover:text-white transition-colors duration-300"
           >
-            Instagram
+            Instagram をフォロー
           </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs tracking-widest hover:text-[#C8A96E] transition-colors"
-            aria-label="X (Twitter)（外部リンク）"
-          >
-            X (Twitter)
-          </a>
-        </nav>
+        </div>
 
         <p className="text-xs text-white/30">
           © {new Date().getFullYear()} Café Lumière. All rights reserved.

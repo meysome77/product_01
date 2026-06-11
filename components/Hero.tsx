@@ -30,12 +30,22 @@ export default function Hero() {
         <p className="text-white/70 text-lg md:text-xl font-light tracking-wider mb-12">
           静かな時間を、あなたに
         </p>
-        <a
-          href="#menu"
-          className="inline-block border border-[#C8A96E] text-[#C8A96E] px-10 py-3 text-sm tracking-widest hover:bg-[#C8A96E] hover:text-white transition-colors duration-300"
-        >
-          MENU
-        </a>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#menu"
+            className="inline-block border border-[#C8A96E] text-[#C8A96E] px-10 py-3 text-sm tracking-widest hover:bg-[#C8A96E] hover:text-white transition-colors duration-300"
+          >
+            MENU
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#C8A96E] text-white px-10 py-3 text-sm tracking-widest hover:bg-[#b8945a] transition-colors duration-300"
+          >
+            INSTAGRAM
+          </a>
+        </div>
       </div>
 
       {/* スクロールインジケーター */}
