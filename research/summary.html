@@ -1,0 +1,326 @@
+<title>AI収益化サイト 競合リサーチ サマリー</title>
+<style>
+  :root{
+    --bg:#f7faf9; --surface:#ffffff; --surface-2:#eef3f2; --line:#dbe4e2;
+    --ink:#132320; --muted:#5a6b68; --faint:#8a9a97;
+    --accent:#0e7c6b; --accent-ink:#0a5e51; --accent-soft:#d7ebe6;
+    --good:#2e9e6b; --warn:#c07f10; --weak:#b0524a;
+    --h1:#0e7c6b;
+    --heat-1:#eef3f2; --heat-2:#cfe6df; --heat-3:#8fcdbf; --heat-4:#3d9e89; --heat-5:#0e7c6b;
+    --heat-ink-lo:#2a3b38; --heat-ink-hi:#ffffff;
+    --shadow:0 1px 2px rgba(19,35,32,.05), 0 8px 24px -12px rgba(19,35,32,.14);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0d1413; --surface:#141d1b; --surface-2:#1b2725; --line:#283432;
+      --ink:#e9efed; --muted:#9fb0ad; --faint:#6f807d;
+      --accent:#34b39d; --accent-ink:#7fd3c4; --accent-soft:#12332d;
+      --good:#3fb37e; --warn:#d69a2e; --weak:#cf6a60;
+      --h1:#7fd3c4;
+      --heat-1:#18211f; --heat-2:#1f3a34; --heat-3:#2b6455; --heat-4:#2f8a76; --heat-5:#37b7a0;
+      --heat-ink-lo:#c6d3d0; --heat-ink-hi:#03110e;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f7faf9; --surface:#ffffff; --surface-2:#eef3f2; --line:#dbe4e2;
+    --ink:#132320; --muted:#5a6b68; --faint:#8a9a97;
+    --accent:#0e7c6b; --accent-ink:#0a5e51; --accent-soft:#d7ebe6;
+    --good:#2e9e6b; --warn:#c07f10; --weak:#b0524a; --h1:#0e7c6b;
+    --heat-1:#eef3f2; --heat-2:#cfe6df; --heat-3:#8fcdbf; --heat-4:#3d9e89; --heat-5:#0e7c6b;
+    --heat-ink-lo:#2a3b38; --heat-ink-hi:#ffffff;
+    --shadow:0 1px 2px rgba(19,35,32,.05), 0 8px 24px -12px rgba(19,35,32,.14);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d1413; --surface:#141d1b; --surface-2:#1b2725; --line:#283432;
+    --ink:#e9efed; --muted:#9fb0ad; --faint:#6f807d;
+    --accent:#34b39d; --accent-ink:#7fd3c4; --accent-soft:#12332d;
+    --good:#3fb37e; --warn:#d69a2e; --weak:#cf6a60; --h1:#7fd3c4;
+    --heat-1:#18211f; --heat-2:#1f3a34; --heat-3:#2b6455; --heat-4:#2f8a76; --heat-5:#37b7a0;
+    --heat-ink-lo:#c6d3d0; --heat-ink-hi:#03110e;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
+  .wrap{max-width:980px; margin:0 auto; padding:clamp(20px,4vw,52px) clamp(16px,4vw,32px) 72px}
+
+  .eyebrow{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--accent-ink); font-weight:700; margin:0 0 10px;
+  }
+  h1{
+    font-size:clamp(26px,4.6vw,42px); line-height:1.15; margin:0 0 12px;
+    letter-spacing:-.02em; text-wrap:balance; font-weight:800;
+  }
+  .lede{font-size:clamp(15px,2vw,17px); color:var(--muted); max-width:64ch; margin:0}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+  .tag{
+    font-size:12px; padding:5px 11px; border-radius:999px;
+    background:var(--surface-2); color:var(--muted); border:1px solid var(--line);
+  }
+  .tag strong{color:var(--ink); font-weight:700}
+
+  section{margin-top:clamp(30px,5vw,46px)}
+  h2{
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
+    font-weight:700; margin:0 0 16px; display:flex; align-items:center; gap:10px;
+  }
+  h2::after{content:""; flex:1; height:1px; background:var(--line)}
+
+  /* Verdict */
+  .verdict{
+    background:
+      radial-gradient(120% 140% at 100% 0%, var(--accent-soft) 0%, transparent 55%),
+      var(--surface);
+    border:1px solid var(--line); border-radius:16px; padding:clamp(20px,3vw,30px);
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .verdict .rail{position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--accent)}
+  .verdict-badge{
+    display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700;
+    color:var(--accent-ink); letter-spacing:.04em; margin:0 0 10px;
+  }
+  .verdict-badge .dot{width:8px; height:8px; border-radius:50%; background:var(--accent)}
+  .verdict h3{font-size:clamp(20px,3vw,27px); margin:0 0 6px; letter-spacing:-.01em; text-wrap:balance}
+  .verdict h3 .amp{color:var(--muted); font-weight:600; padding:0 4px}
+  .verdict p{margin:10px 0 0; color:var(--muted); max-width:62ch}
+  .why{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:8px; grid-template-columns:1fr 1fr}
+  .why li{
+    display:flex; gap:9px; align-items:flex-start; font-size:14px; color:var(--ink);
+    background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:9px 12px;
+  }
+  .why li::before{content:"✓"; color:var(--accent-ink); font-weight:800; line-height:1.5}
+
+  /* Score matrix */
+  .scroll{overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--shadow)}
+  table{border-collapse:collapse; width:100%; min-width:560px}
+  caption{caption-side:bottom; text-align:left; color:var(--faint); font-size:12px; padding:10px 14px}
+  th,td{padding:11px 12px; text-align:center; border-bottom:1px solid var(--line)}
+  thead th{
+    font-size:13px; font-weight:700; color:var(--ink); background:var(--surface-2);
+    position:sticky; top:0; vertical-align:bottom;
+  }
+  thead th:first-child, tbody th{text-align:left}
+  tbody th{font-weight:600; font-size:13.5px; color:var(--ink); white-space:nowrap; background:var(--surface)}
+  .col-type span{display:block; font-size:11px; color:var(--muted); font-weight:600; margin-top:2px}
+  th.rec{color:var(--accent-ink)}
+  th.rec .col-type span{color:var(--accent-ink)}
+  .rec-col{background:linear-gradient(var(--accent-soft),transparent)}
+  td.heat{font-weight:700; font-size:15px}
+  .mono.cell{font-variant-numeric:tabular-nums}
+  .s1{background:var(--heat-1); color:var(--heat-ink-lo)}
+  .s2{background:var(--heat-2); color:var(--heat-ink-lo)}
+  .s3{background:var(--heat-3); color:var(--heat-ink-lo)}
+  .s4{background:var(--heat-4); color:var(--heat-ink-hi)}
+  .s5{background:var(--heat-5); color:var(--heat-ink-hi)}
+  tr.total th, tr.total td{border-top:2px solid var(--line); border-bottom:none; padding-top:14px; padding-bottom:16px}
+  .total td{font-size:13px; color:var(--muted)}
+  .totbar{display:flex; flex-direction:column; align-items:center; gap:5px}
+  .totbar b{font-size:20px; font-variant-numeric:tabular-nums; color:var(--ink)}
+  .totbar .track{width:64px; height:6px; border-radius:3px; background:var(--surface-2); overflow:hidden}
+  .totbar .fill{height:100%; background:var(--accent); border-radius:3px}
+  .total td.win b{color:var(--accent-ink)}
+  .legend{display:flex; align-items:center; gap:10px; margin-top:12px; font-size:12px; color:var(--muted); flex-wrap:wrap}
+  .legend .scale{display:flex; border-radius:5px; overflow:hidden; border:1px solid var(--line)}
+  .legend .scale i{width:22px; height:14px; display:block}
+
+  /* Type cards */
+  .cards{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:16px 17px;
+    display:flex; flex-direction:column; gap:8px; position:relative;
+  }
+  .card.pick{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset, var(--shadow)}
+  .card .no{font-size:12px; font-weight:800; color:var(--faint)}
+  .card.pick .no{color:var(--accent-ink)}
+  .card h4{margin:0; font-size:16px; letter-spacing:-.01em}
+  .card p{margin:0; font-size:13px; color:var(--muted)}
+  .verdict-chip{
+    align-self:flex-start; margin-top:auto; font-size:11.5px; font-weight:700; letter-spacing:.03em;
+    padding:4px 9px; border-radius:6px;
+  }
+  .v-go{background:var(--accent-soft); color:var(--accent-ink)}
+  .v-sub{background:var(--surface-2); color:var(--muted)}
+  .v-no{background:color-mix(in srgb, var(--weak) 16%, transparent); color:var(--weak)}
+
+  /* Money pillars */
+  .pillars{display:grid; gap:14px; grid-template-columns:1fr 1fr}
+  .pillar{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:18px; box-shadow:var(--shadow)}
+  .pillar .lab{font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 4px}
+  .pillar h4{margin:0 0 10px; font-size:17px}
+  .pillar ul{margin:0; padding-left:0; list-style:none; display:grid; gap:7px}
+  .pillar li{font-size:13.5px; color:var(--muted); display:flex; gap:8px}
+  .pillar li b{color:var(--ink); font-weight:600}
+  .pillar li::before{content:"▹"; color:var(--accent); flex:none}
+  .note{margin-top:14px; font-size:13px; color:var(--muted); background:var(--surface-2); border-left:3px solid var(--warn); border-radius:0 8px 8px 0; padding:10px 13px}
+
+  /* Steps */
+  ol.steps{list-style:none; counter-reset:s; margin:0; padding:0; display:grid; gap:10px}
+  ol.steps li{
+    counter-increment:s; display:flex; gap:14px; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:13px 15px;
+  }
+  ol.steps li::before{
+    content:counter(s); flex:none; width:27px; height:27px; border-radius:8px;
+    background:var(--accent); color:#fff; font-weight:800; font-size:14px;
+    display:grid; place-items:center; font-variant-numeric:tabular-nums;
+  }
+  ol.steps b{font-weight:700}
+  ol.steps span{color:var(--muted); font-size:13.5px}
+
+  footer{margin-top:44px; padding-top:16px; border-top:1px solid var(--line); color:var(--faint); font-size:12px}
+
+  a{color:var(--accent-ink); text-underline-offset:2px}
+  @media (max-width:560px){ .why,.pillars{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0; transform:translateY(10px); animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+    .reveal:nth-child(2){animation-delay:.05s}
+    @keyframes rise{to{opacity:1; transform:none}}
+  }
+</style>
+
+<div class="wrap">
+  <header class="reveal">
+    <p class="eyebrow">競合リサーチ サマリー</p>
+    <h1>AIサイトで「広告＋アフィリ」<br>初心者はどこで勝てるか</h1>
+    <p class="lede">4つのサイトタイプを、初心者・広告＋アフィリの前提で採点。結論と、最初の一手までを1枚に。</p>
+    <div class="meta">
+      <span class="tag"><strong>市場</strong>&nbsp;まず日本 → 将来英語</span>
+      <span class="tag"><strong>収益</strong>&nbsp;広告(AdSense)＋アフィリ</span>
+      <span class="tag"><strong>調査</strong>&nbsp;2026年7月時点</span>
+    </div>
+  </header>
+
+  <section class="reveal">
+    <h2>結論</h2>
+    <div class="verdict">
+      <div class="rail"></div>
+      <p class="verdict-badge"><span class="dot"></span>おすすめの攻めどころ</p>
+      <h3>④ 特定ツール特化（ChatGPT）<span class="amp">＋</span>① 比較記事 のハイブリッド</h3>
+      <p>1ツールに絞って「使い方・プロンプト」をストック資産として積み、要所に比較記事を挟んでアフィリに接続する。総合スコアも4タイプ中トップ（24／30）。</p>
+      <ul class="why">
+        <li>プロンプト・使い方は<b>&nbsp;陳腐化しにくい資産</b>（ニュース型の逆）</li>
+        <li>1ツール特化で<b>&nbsp;専門性(EEAT)</b>が伝わりやすい</li>
+        <li>ChatGPTは市場シェア<b>&nbsp;約64.5%</b>、母数が巨大</li>
+        <li>テック単価◎＋アフィリ相性◎で<b>&nbsp;二本柱が両立</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>4タイプ比較スコア</h2>
+    <div class="scroll">
+      <table>
+        <caption>5点満点／数値が高いほど「初心者×広告＋アフィリ」に有利。色が濃いほど高スコア。</caption>
+        <thead>
+          <tr>
+            <th scope="col">評価軸</th>
+            <th scope="col" class="col-type">①<span>ツール比較</span></th>
+            <th scope="col" class="col-type">②<span>初心者ハウツー</span></th>
+            <th scope="col" class="col-type">③<span>AIニュース</span></th>
+            <th scope="col" class="col-type rec">④<span>特化 ★推奨</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">競合の少なさ</th>
+            <td class="heat s2 mono cell">2</td><td class="heat s3 mono cell">3</td><td class="heat s1 mono cell">1</td><td class="heat s3 mono cell rec-col">3</td></tr>
+          <tr><th scope="row">初心者の勝ちやすさ</th>
+            <td class="heat s3 mono cell">3</td><td class="heat s5 mono cell">5</td><td class="heat s1 mono cell">1</td><td class="heat s4 mono cell rec-col">4</td></tr>
+          <tr><th scope="row">広告単価（RPM）</th>
+            <td class="heat s4 mono cell">4</td><td class="heat s2 mono cell">2</td><td class="heat s3 mono cell">3</td><td class="heat s4 mono cell rec-col">4</td></tr>
+          <tr><th scope="row">アフィリ相性</th>
+            <td class="heat s5 mono cell">5</td><td class="heat s4 mono cell">4</td><td class="heat s2 mono cell">2</td><td class="heat s5 mono cell rec-col">5</td></tr>
+          <tr><th scope="row">運用負荷の低さ</th>
+            <td class="heat s3 mono cell">3</td><td class="heat s3 mono cell">3</td><td class="heat s1 mono cell">1</td><td class="heat s4 mono cell rec-col">4</td></tr>
+          <tr><th scope="row">英語展開のしやすさ</th>
+            <td class="heat s4 mono cell">4</td><td class="heat s3 mono cell">3</td><td class="heat s2 mono cell">2</td><td class="heat s4 mono cell rec-col">4</td></tr>
+          <tr class="total">
+            <th scope="row">合計 <span style="font-weight:400;color:var(--faint)">／30</span></th>
+            <td><div class="totbar"><b>21</b><span class="track"><span class="fill" style="width:70%"></span></span></div></td>
+            <td><div class="totbar"><b>20</b><span class="track"><span class="fill" style="width:67%"></span></span></div></td>
+            <td><div class="totbar"><b>10</b><span class="track"><span class="fill" style="width:33%"></span></span></div></td>
+            <td class="win rec-col"><div class="totbar"><b>24</b><span class="track"><span class="fill" style="width:80%"></span></span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span>低</span>
+      <span class="scale"><i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i><i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i><i style="background:var(--heat-5)"></i></span>
+      <span>高</span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>各タイプの判定</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="no">①</span><h4>ツール比較・まとめ</h4>
+        <p>アフィリ相性は最強。ただし網羅型は大手が制圧。狭い用途×実使用レビューに絞れば余地あり。</p>
+        <span class="verdict-chip v-sub">比較記事として併用</span>
+      </div>
+      <div class="card">
+        <span class="no">②</span><h4>初心者ハウツー</h4>
+        <p>大手が手薄で入りやすく実体験を出しやすい。ただし広告単価は低め。集客の入口に。</p>
+        <span class="verdict-chip v-sub">集客の入口に少量</span>
+      </div>
+      <div class="card">
+        <span class="no">③</span><h4>AIニュース</h4>
+        <p>AINOW(記事3万本超)等が制圧。フロー型で資産が積まれず個人の労力対効果が最悪。</p>
+        <span class="verdict-chip v-no">主軸は非推奨</span>
+      </div>
+      <div class="card pick">
+        <span class="no">④ ★</span><h4>特定ツール特化</h4>
+        <p>狭く深くで権威性を作れ、プロンプトが資産化。アフィリ・単価とも好相性。ここを主軸に。</p>
+        <span class="verdict-chip v-go">主軸に据える</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>収益は二本柱で</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <p class="lab">土台・安定・薄利</p>
+        <h4>広告（AdSense）</h4>
+        <ul>
+          <li><b>一般ブログのRPM 200〜500円</b>／テック特化は1,000PVで約1,200円の例も</li>
+          <li>審査は<b>記事10本前後＋独自性</b>が鍵。まずここを通す</li>
+          <li>2026年は単価下落傾向 → 依存しない</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <p class="lab">主役・変動・厚利</p>
+        <h4>アフィリエイト</h4>
+        <ul>
+          <li>最初の1件は<b>ブログ開設サーバー</b>（数千円/件）で出しやすい</li>
+          <li>単価は<b>AIスクール（5,000円+）</b>、積み上げは<b>SaaS継続報酬</b></li>
+          <li>ASPは A8.net／もしも／afb に登録</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note"><b>共通の生命線：</b>2025〜26年は薄いAI量産記事が評価されない。実際に打ったプロンプトと出力スクショ（一次情報）が、SEOもAdSense審査も同時に満たす。</p>
+  </section>
+
+  <section class="reveal">
+    <h2>最初の一手</h2>
+    <ol class="steps">
+      <li><span><b>特化する1ツールを決める。</b>&nbsp;推奨はChatGPT（画像派ならMidjourney）。</span></li>
+      <li><span><b>狙うサブテーマを1つ。</b>&nbsp;例「職業別プロンプト集」。隙間キーワードから縦に量産。</span></li>
+      <li><span><b>ASPに登録し案件を確認。</b>&nbsp;A8.net／もしも／afb。最初はサーバー案件が発生しやすい。</span></li>
+      <li><span><b>一次情報入りの記事を10本。</b>&nbsp;実プロンプト＋スクショでAdSense審査を通す。</span></li>
+      <li><span><b>次フェーズへ。</b>&nbsp;サイトの要件定義→実装。</span></li>
+    </ol>
+  </section>
+
+  <footer>
+    出典・詳細は <span class="mono">research/</span> 配下の報告書（00〜07）を参照。数値（PV・RPM・シェア・単価）は調査時点の目安で、時期により変動します。
+  </footer>
+</div>
