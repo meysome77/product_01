@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui, sans-serif;
+
+  /* ブランドカラー: 信頼感のあるブルーグリーン */
+  --color-brand-50: #eef8f7;
+  --color-brand-100: #d3ecea;
+  --color-brand-200: #a9d9d6;
+  --color-brand-300: #74bfbb;
+  --color-brand-400: #46a19d;
+  --color-brand-500: #2b8582;
+  --color-brand-600: #216a68;
+  --color-brand-700: #1d5553;
+  --color-brand-800: #1a4544;
+  --color-brand-900: #173a39;
+}
+
+:root {
+  --background: #f7f8f8;
+  --foreground: #16211f;
+  --surface: #ffffff;
+  --border: #e2e6e6;
+  --muted: #667471;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #101817;
+    --foreground: #e9efee;
+    --surface: #17211f;
+    --border: #2a3634;
+    --muted: #94a4a1;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border-subtle: var(--border);
+  --color-muted: var(--muted);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

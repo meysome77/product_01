@@ -3,3 +3,9 @@
 .env*.local
 .DS_Store
 node_modules/
+.next/
+next-env.d.ts
+/out/
+/build
+*.tsbuildinfo
+.vercel
